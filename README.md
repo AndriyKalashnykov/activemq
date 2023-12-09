@@ -108,4 +108,5 @@ docker buildx build --push --platform linux/arm64,linux/amd64 --tag andriykalash
 
 ## References
 
+* [Helm chart for ActiveMQ](https://github.com/disaster37/activemq-kube/blob/master/deploy/helm/activemq/templates/statefullset.yaml)
 * [Docker image for ActiveMQ](https://github.com/disaster37/activemq/blob/master/assets/entrypoint/entrypoint/Init.py)
