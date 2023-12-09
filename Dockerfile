@@ -25,12 +25,15 @@ USER activemq
 WORKDIR $ACTIVEMQ_HOME
 
 COPY conf/activemq.xml $ACTIVEMQ_HOME/conf/
+COPY conf/jetty.xml $ACTIVEMQ_HOME/conf/
 COPY conf/jolokia-access.xml $ACTIVEMQ_HOME/conf/
 COPY conf/broker.ts $ACTIVEMQ_HOME/conf/
 COPY conf/broker.ks $ACTIVEMQ_HOME/conf/
-COPY conf/broker.cert $ACTIVEMQ_HOME/conf/
+COPY conf/broker.p12 $ACTIVEMQ_HOME/conf/
+COPY conf/broker.pem $ACTIVEMQ_HOME/conf/
 COPY conf/client.ts $ACTIVEMQ_HOME/conf/
-COPY conf/client.ks $ACTIVEMQ_HOME/conf/
+COPY conf/client.p12 $ACTIVEMQ_HOME/conf/
+COPY conf/client.pem $ACTIVEMQ_HOME/conf/
 COPY conf/client.cert $ACTIVEMQ_HOME/conf/
 COPY webapps/api/WEB-INF/web.xml $ACTIVEMQ_HOME/webapps/api/WEB-INF/
 

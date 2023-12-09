@@ -119,6 +119,14 @@ curl -u admin:admin -d 'hello world 1' -H 'Origin: http://localhost' -H 'Content
 curl -u admin:admin -d "body=message" http://localhost:8161/api/message/empi-Master-persistence?type=queue -H 'Origin: http://localhost'
 ( echo -n "body="  ;  cat /home/andriy/projects/minikube-cluster/k8s/cdr/assets/rec.json ) | curl -H 'Origin: http://localhost' --data-binary '@-' -d 'customProperty=value' 'http://admin:admin@192.168.200.2:8161/api/message/q1?type=queue'
 curl -XGET -u admin:admin -H 'Origin: http://localhost/' http://localhost:8161/api/jolokia/list
-curl -XGET -u admin:admin -H 'Origin: http://localhost/' http://localhost:8161/api/jolokia/list
- 
+```
+
+## SSL
+
+```bash
+openssl s_client -connect localhost:8162 -CAfile conf/broker.pem
+curl -k -u admin:admin -d "body=message" https://192.168.200.2:8162/api/message/TEST?type=queue --pass '' --cert conf/broker.pem
+curl -k -u admin:admin -GET https://192.168.200.2:8162/api/jolokia/list --pass '' --cert conf/broker.pem
+wget --no-check-certificate --http-user=admin --http-password=admin --post-data="body=test" https://192.168.200.2:8162/api/message/TEST?type=queue --ca-certificate=conf/broker.pem -O /dev/null -o /dev/null
+wget --no-check-certificate --http-user=admin --http-password=admin --post-data="body=test" https://192.168.200.2:8162/api/jolokia/list --ca-certificate=conf/broker.pem -O /dev/null -o /dev/null
 ```

@@ -3,6 +3,8 @@
 # Author: Andriy Kalashnykov
 # Contact: AndriyKalashnykov@gmail.com
 
+rm broker.ks broker.ts broker.cert broker.p12 broker.pem client.ks client.ts client.cert client.p12 client.pem 
+
 BROKER_KEYSTORE_PASSWORD=password
 BROKER_DNAME="CN=localhost,OU=broker,O=localhost,C=US"
 BROKER_KEYALG=RSA
@@ -72,3 +74,13 @@ keytool -import -alias client -keystore broker.ts -storepass $BROKER_KEYSTORE_PA
 
 # A good tool to know to list the contents of the key
 keytool -list -keystore broker.ks -storepass $BROKER_KEYSTORE_PASSWORD
+
+# # Export broker to PEM
+keytool -importkeystore -srckeystore broker.ks -destkeystore broker.p12 -srcstoretype jks -deststoretype pkcs12 -srcstorepass $BROKER_KEYSTORE_PASSWORD -deststorepass $BROKER_KEYSTORE_PASSWORD
+openssl pkcs12 -in broker.p12 -out broker.pem -passin pass:$BROKER_KEYSTORE_PASSWORD -passout pass:
+openssl x509 -in broker.pem -noout -text -passin pass:
+
+# # Export client to PEM
+keytool -importkeystore -srckeystore client.ks -destkeystore client.p12 -srcstoretype jks -deststoretype pkcs12 -srcstorepass $CLIENT_KEYSTORE_PASSWORD -deststorepass $CLIENT_KEYSTORE_PASSWORD
+openssl pkcs12 -in client.p12 -out client.pem -passin pass:$CLIENT_KEYSTORE_PASSWORD -passout pass:
+openssl x509 -in client.pem -noout -text -passin pass:
