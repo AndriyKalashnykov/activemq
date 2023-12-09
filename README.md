@@ -1,26 +1,27 @@
 ## Dockerfile to build a ActiveMQ container image.
 
-Based on [bellsoft/liberica-openjdk-alpine:17](https://hub.docker.com/r/bellsoft/liberica-openjdk-alpine), as lightweight as possible AND multiarch (Support for Apple M1 chip / aarch64 aka ARM64). 
-
-Published on the Docker Hub: https://hub.docker.com/r/symptoma/activemq
+Based on [bellsoft/liberica-openjdk-alpine:17](https://hub.docker.com/r/bellsoft/liberica-openjdk-alpine), lightweight and multi-arch (Apple M1/M2/aarch64/arm64)
 
 ## Usage
 
+```bash
+docker run -it -p 1099:1099 -p 8161:8161 -p 61616:61616 andriykalashnykov/activemq:latest
 ```
-docker run -it -p 61616:61616 -p 8161:8161 symptoma/activemq:latest
-```
-Bind more ports if you need to.
 
-Example with environment variables:
-```
+Bind more ports and environment variables:
+
+```bash
 docker run -it \
--p 61616:61616 \
+-p 1099:1099 \
 -p 8161:8161 \
--e ACTIVEMQ_USERNAME=myactivemquser \
--e ACTIVEMQ_PASSWORD=myactivemquserpass \
--e ACTIVEMQ_WEBADMIN_USERNAME=roos \
--e ACTIVEMQ_WEBADMIN_PASSWORD=TestTest \
-symptoma/activemq:latest
+-p 61616:61616 \
+-e ACTIVEMQ_USERNAME=admin \
+-e ACTIVEMQ_PASSWORD=admin \
+-e ACTIVEMQ_WEBADMIN_USERNAME=admin \
+-e ACTIVEMQ_WEBADMIN_PASSWORD=admin \
+andriykalashnykov/activemq:latest
+
+openssl s_client -connect localhost:26616 -debug
 ```
 
 ## ActiveMQ version
@@ -51,6 +52,7 @@ The following ports are exposed and can be bound:
 
 | Port  | Description |
 |:------|:------------|
+| 1099  | JMX         |
 | 1883  | MQTT        |
 | 5672  | AMPQ        |
 | 8161  | WebConsole  |
@@ -60,7 +62,7 @@ The following ports are exposed and can be bound:
 
 ## Build
 
-```
+```bash
 ./build.sh
 ```
 
@@ -68,30 +70,38 @@ The following ports are exposed and can be bound:
 
 First, commit your change to Git. 
 
-`git commit -m "Update ActiveMQ to 5.18.3"`
+```bash
+git commit -m "Update ActiveMQ to 5.18.3"
+```
 
 Then tag it. 
 
-`git tag -a v5.18.3 -m 'Release 5.18.3'`
+```bash
+git tag -a v5.18.3 -m "Release 5.18.3"
+```
 
 Then push it to Github.
 
-`git push && git push origin --tags`
-
-Publishing manually works like this (after `docker login`):
-
+```bash
+git push && git push origin --tags
 ```
-docker tag <image> symptoma/activemq:5.18.3
-docker push symptoma/activemq
+
+Publishing manually:
+
+```bash
+docker login
+docker tag andriykalashnykov/activemq:5.18.3 andriykalashnykov/activemq:latest
+docker push andriykalashnykov/activemq:5.18.3
+docker push andriykalashnykov/activemq:latest
 ```
 
 ## Multi Architecture Docker Build
 
-Prepare the buildx context and use it:
-
-* `BUILDER_NAME=$(docker buildx create) && docker buildx use $BUILDER_NAME`
-
 Then build for multiple platforms:
 
-* `docker buildx build --push --platform linux/arm64,linux/amd64 --tag symptoma/activemq:5.18.3 .`
-* `docker buildx build --push --platform linux/arm64,linux/amd64 --tag symptoma/activemq:latest .`
+```bash
+# Prepare the buildx context and use it
+BUILDER_NAME=$(docker buildx create) && docker buildx use $BUILDER_NAME
+docker buildx build --push --platform linux/arm64,linux/amd64 --tag andriykalashnykov/activemq:5.18.3 .
+docker buildx build --push --platform linux/arm64,linux/amd64 --tag andriykalashnykov/activemq:latest .
+```

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-docker rmi symptoma/activemq
-docker build -t symptoma/activemq .
+docker rmi andriykalashnykov/activemq:5.18.3
+docker build -t andriykalashnykov/activemq:5.18.3 .
