@@ -120,7 +120,7 @@
 
     <bean id="jettyPort" class="org.apache.activemq.web.WebConsolePort" init-method="start">
              <!-- the default port number for the web console -->
-        <property name="host" value="127.0.0.1"/>
+        <property name="host" value="0.0.0.0"/>
         <property name="port" value="8161"/>
     </bean>
 
@@ -161,7 +161,7 @@
                 <!--
                     Enable this connector if you wish to use https with web console
                 -->
-                <!-- bean id="SecureConnector" class="org.eclipse.jetty.server.ServerConnector">
+                <bean id="SecureConnector" class="org.eclipse.jetty.server.ServerConnector">
 					<constructor-arg ref="Server" />
 					<constructor-arg>
 						<bean id="handlers" class="org.eclipse.jetty.util.ssl.SslContextFactory">
@@ -171,7 +171,7 @@
 						</bean>
 					</constructor-arg>
 					<property name="port" value="8162" />
-				</bean -->
+				</bean>
             </list>
     	</property>
     </bean>

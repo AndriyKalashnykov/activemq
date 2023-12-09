@@ -5,12 +5,13 @@ services:
     restart: unless-stopped
     hostname: activemq
     container_name: activemq    
-    image: andriykalashnykov/activemq:5.18.3
+    image: andriykalashnykov/activemq:latest
     ports:
       - 1099:1099
       - 1883:1883
       - 5672:5672
       - 8161:8161
+      - 8162:8162
       - 61613:61613
       - 61614:61614
       - 61616:61616

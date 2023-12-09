@@ -28,6 +28,8 @@
     <command>list</command>
     <command>version</command>
     <command>search</command>
+    <command>write</command>
+    <command>exec</command>
   </commands>
 
   <allow>
