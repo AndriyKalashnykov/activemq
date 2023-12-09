@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  activemq:
+    tty: true
+    restart: unless-stopped
+    hostname: activemq
+    container_name: activemq    
+    image: andriykalashnykov/activemq:5.18.3
+    ports:
+      - 1099:1099
+      - 1883:1883
+      - 5672:5672
+      - 8161:8161
+      - 61613:61613
+      - 61614:61614
+      - 61616:61616
+    networks:
+      ldap_net:
+        ipv4_address: 192.168.200.2
+    logging:
+      driver: "${LOG_DRIVER}"
+      options:
+        max-size: "${LOG_MAX_SIZE}"
+        max-file: "${LOG_MAX_FILES}"
+networks:
+  ldap_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.0.0/16
