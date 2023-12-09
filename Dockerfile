@@ -25,6 +25,7 @@ USER activemq
 WORKDIR $ACTIVEMQ_HOME
 
 COPY conf/activemq.xml $ACTIVEMQ_HOME/conf/
+COPY conf/jolokia-access.xml $ACTIVEMQ_HOME/conf/
 COPY conf/broker.ts $ACTIVEMQ_HOME/conf/
 COPY conf/broker.ks $ACTIVEMQ_HOME/conf/
 COPY conf/broker.cert $ACTIVEMQ_HOME/conf/

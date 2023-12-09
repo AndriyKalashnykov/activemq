@@ -18,9 +18,9 @@
 <restrict>
 
   <!-- Enforce that an Origin/Referer header is present to prevent CSRF -->
-  <cors>
+  <!-- <cors>
     <strict-checking/>
-  </cors>
+  </cors> -->
 
   <!-- By default don't allow write or exec operations -->
   <commands>

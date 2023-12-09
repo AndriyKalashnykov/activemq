@@ -51,7 +51,7 @@
     <servlet>
         <servlet-name>jolokia-agent</servlet-name>
         <servlet-class>org.jolokia.http.AgentServlet</servlet-class>
-        <!-- Uncomment this if you want jolokia multicast discovery to be enabled         
+        <!-- Uncomment this if you want jolokia multicast discovery to be enabled          -->
         <init-param>
           <param-name>discoveryEnabled</param-name>
           <param-value>true</param-value>
@@ -64,7 +64,7 @@
           <param-name>agentDescription</param-name>
           <param-value>Apache ActiveMQ</param-value>
         </init-param>
-        -->
+       
         <init-param>
             <param-name>policyLocation</param-name>
             <param-value>${prop:jolokia.conf}</param-value>

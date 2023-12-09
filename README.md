@@ -114,9 +114,10 @@ docker buildx build --push --platform linux/arm64,linux/amd64 --tag andriykalash
 ## Send a message via ActiveMQ REST API
 
 ```bash
-curl -u admin:admin -d "body=message" http://192.168.200.2:8161/api/message/TEST?type=queue -H 'Origin: http://localhost'
+curl -u admin:admin -d "body=message" http://192.168.200.2:8161/api/message/TEST?type=queue -H 'Origin: http://http://192.168.200.2/'
 curl -u admin:admin -d 'hello world 1' -H 'Origin: http://localhost' -H 'Content-Type: text/plain' -XPOST 'http://192.168.200.2:8161/api/message?destination=queue://empi-Master-persistence'
 curl -u admin:admin -d "body=message" http://192.168.200.2:8161/api/message/empi-Master-persistence?type=queue -H 'Origin: http://localhost'
 ( echo -n "body="  ;  cat /home/andriy/projects/minikube-cluster/k8s/cdr/assets/rec.json ) | curl -H 'Origin: http://localhost' --data-binary '@-' -d 'customProperty=value' 'http://admin:admin@192.168.200.2:8161/api/message/q1?type=queue'
+curl -XGET -u admin:admin -H 'Origin: http://http://192.168.200.2/' http://192.168.200.2:8161/api/jolokia/list
  
 ```
