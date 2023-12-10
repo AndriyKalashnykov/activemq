@@ -118,7 +118,7 @@
             <transportConnector name="amqp+ssl" uri="amqp+ssl://0.0.0.0:25672?transport.enabledProtocols=TLSv1.2&amp;transport.needClientAuth=false"/>
             <transportConnector name="stomp+ssl" uri="stomp+ssl://0.0.0.0:26613?transport.enabledProtocols=TLSv1.2&amp;transport.needClientAuth=false"/>
             <transportConnector name="mqtt+ssl" uri="mqtt+ssl://0.0.0.0:28883?transport.enabledProtocols=TLSv1.2&amp;transport.needClientAuth=false"/>
-            <transportConnector name="ws+ssl" uri="wss://0.0.0.0:26615?transport.enabledProtocols=TLSv1.2&amp;transport.needClientAuth=false"/>
+            <transportConnector name="ws+ssl" uri="wss://0.0.0.0:26614?transport.enabledProtocols=TLSv1.2&amp;transport.needClientAuth=false"/>
         </transportConnectors>
 
         <!-- destroy the spring context on shutdown to stop jetty -->

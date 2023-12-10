@@ -37,8 +37,7 @@ RUN chown -R activemq:activemq $ACTIVEMQ_HOME && chown -h activemq:activemq $ACT
 
 WORKDIR $ACTIVEMQ_HOME
 USER activemq
-EXPOSE 1099 1883 5672 8161 8162 61613 61614 61616
+EXPOSE 1099 1883 5672 8161 8162 61613 61614 61616 25672 26613 26614 26616 28883
 
-# VOLUME ["/opt/activemq/data", "/opt/activemq/log"]
+VOLUME ["/opt/activemq/data"]
 ENTRYPOINT ["/entrypoint.sh"]
-# CMD ["/opt/activemq/bin/activemq", "console"]

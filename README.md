@@ -13,8 +13,18 @@ Bind more ports and environment variables:
 ```bash
 docker run -it \
 -p 1099:1099 \
+-p 1833:1833 \
+-p 5672:5672 \
 -p 8161:8161 \
+-p 8162:8162 \
+-p 61613:61613 \
+-p 61614:61614 \
 -p 61616:61616 \
+-p 25672:25672 \
+-p 26613:26613 \
+-p 26614:26614 \
+-p 26616:26616 \
+-p 28883:28883 \
 -e ACTIVEMQ_USERNAME=admin \
 -e ACTIVEMQ_PASSWORD=admin \
 -e ACTIVEMQ_WEBADMIN_USERNAME=admin \
@@ -119,7 +129,7 @@ curl -XGET -u admin:admin -H 'Origin: http://localhost/' http://localhost:8161/a
 ## SSL
 
 ```bash
-openssl s_client -connect localhost:8162 -CAfile conf/broker.pem
+openssl s_client -connect 192.168.200.2:8162 -CAfile conf/broker.pem
 curl -k -u admin:admin -d "body=message" https://192.168.200.2:8162/api/message/TEST?type=queue --pass '' --cert conf/broker.pem
 curl -k -u admin:admin -GET https://192.168.200.2:8162/api/jolokia/list --pass '' --cert conf/broker.pem
 wget --no-check-certificate --http-user=admin --http-password=admin --post-data="body=test" https://192.168.200.2:8162/api/message/TEST?type=queue --ca-certificate=conf/broker.pem -O /dev/null -o /dev/null
