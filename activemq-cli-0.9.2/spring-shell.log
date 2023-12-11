@@ -1,0 +1,44 @@
+// ActiveMQ CLI 1.1.0.RELEASE log opened at 2023-12-08 19:52:09
+connect --broker local
+list-queues 
+send-message 
+send-message --body a
+send-message --body a --queue a
+exit
+// ActiveMQ CLI 1.1.0.RELEASE log closed at 2023-12-08 20:17:18
+// ActiveMQ CLI 1.1.0.RELEASE log opened at 2023-12-08 23:28:44
+// ActiveMQ CLI 1.1.0.RELEASE log opened at 2023-12-08 23:45:03
+connect --broker minikube 
+list-queues 
+list-messages --queue empi-Master-persistence
+exit
+// ActiveMQ CLI 1.1.0.RELEASE log closed at 2023-12-09 00:44:00
+// ActiveMQ CLI 1.1.0.RELEASE log opened at 2023-12-11 10:02:12
+connect --broker minikube 
+exit
+// ActiveMQ CLI 1.1.0.RELEASE log closed at 2023-12-11 13:21:18
+// ActiveMQ CLI 1.1.0.RELEASE log opened at 2023-12-11 13:22:47
+connect --broker minikube 
+connect --broker local 
+connect --broker local 
+exit
+// ActiveMQ CLI 1.1.0.RELEASE log closed at 2023-12-11 13:36:21
+// ActiveMQ CLI 1.1.0.RELEASE log opened at 2023-12-11 13:36:23
+connect --broker minikube 
+exit
+// ActiveMQ CLI 1.1.0.RELEASE log closed at 2023-12-11 13:36:32
+// ActiveMQ CLI 1.1.0.RELEASE log opened at 2023-12-11 13:42:30
+// ActiveMQ CLI 1.1.0.RELEASE log opened at 2023-12-11 13:42:58
+connect --broker 192.168.200.2 
+exit
+// ActiveMQ CLI 1.1.0.RELEASE log closed at 2023-12-11 13:43:39
+// ActiveMQ CLI 1.1.0.RELEASE log opened at 2023-12-11 13:43:41
+connect --broker docker-compose 
+// ActiveMQ CLI 1.1.0.RELEASE log opened at 2023-12-11 13:44:26
+connect --broker docker-compose 
+list-queues 
+exit
+// ActiveMQ CLI 1.1.0.RELEASE log closed at 2023-12-11 13:44:34
+// ActiveMQ CLI 1.1.0.RELEASE log opened at 2023-12-11 13:51:28
+connect --broker docker-compose 
+list-queues 

@@ -14,6 +14,7 @@ Bind more ports and environment variables:
 
 ```bash
 docker run -it \
+-p 1098:1098 \
 -p 1099:1099 \
 -p 1833:1833 \
 -p 5672:5672 \
@@ -80,29 +81,25 @@ The following ports are exposed and can be bound:
 
 ## Publish
 
-First, commit your change to Git. 
-
-```bash
-git commit -m "Update ActiveMQ to 5.18.3"
-```
-
-Then tag it. 
-
-```bash
-git tag -a v5.18.3 -m "Release 5.18.3"
-```
-
-Then push it to Github.
-
-```bash
-git push && git push origin --tags
-```
-
-Publishing manually:
 
 ```bash
 docker login
+./publish.sh
+```
+
+
+### Publish manually
+
+```bash
+docker login
+
+docker rmi --force andriykalashnykov/activemq:5.18.3
+docker rmi --force  andriykalashnykov/activemq:latest
+
+docker build -t andriykalashnykov/activemq:5.18.3 .
+
 docker tag andriykalashnykov/activemq:5.18.3 andriykalashnykov/activemq:latest
+
 docker push andriykalashnykov/activemq:5.18.3
 docker push andriykalashnykov/activemq:latest
 ```
@@ -138,6 +135,22 @@ curl -k -u admin:admin -GET https://192.168.200.2:8162/api/jolokia/list --pass '
 wget --no-check-certificate --http-user=admin --http-password=admin --post-data="body=test" https://192.168.200.2:8162/api/message/TEST?type=queue --ca-certificate=conf/broker.pem -O /dev/null -o /dev/null
 wget --no-check-certificate --http-user=admin --http-password=admin --post-data="body=test" https://192.168.200.2:8162/api/jolokia/list --ca-certificate=conf/broker.pem -O /dev/null -o /dev/null
 docker compose down
+```
+
+## JMX
+
+For remote JMS connection use `service:jmx:rmi://192.168.200.2:1098/jndi/rmi://192.168.200.2:1099/jmxrmi`
+
+
+Connect using ActliveMQ CLI:
+
+```bash
+./activemq-cli-0.9.2//bin/activemq-cli
+
+ctivemq-cli>connect --broker docker-compose
+Connected to broker 'docker-compose'
+docker-compose>list-queues 
+No queues found
 ```
 
 ## References

@@ -1,0 +1,49 @@
+// ActiveMQ CLI 1.1.0.RELEASE log opened at 2023-12-08 00:53:01
+help
+connect --broker local 
+list-queues 
+exit
+// ActiveMQ CLI 1.1.0.RELEASE log closed at 2023-12-08 00:53:41
+// ActiveMQ CLI 1.1.0.RELEASE log opened at 2023-12-09 12:47:28
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+connect --broker minikube 
+exit
+// ActiveMQ CLI 1.1.0.RELEASE log closed at 2023-12-09 12:48:43
