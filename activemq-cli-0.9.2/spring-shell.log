@@ -42,3 +42,5 @@ exit
 // ActiveMQ CLI 1.1.0.RELEASE log opened at 2023-12-11 13:51:28
 connect --broker docker-compose 
 list-queues 
+exit
+// ActiveMQ CLI 1.1.0.RELEASE log closed at 2023-12-11 13:55:09
