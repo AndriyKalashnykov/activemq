@@ -132,10 +132,12 @@ curl -XGET -u admin:admin -H 'Origin: http://localhost/' http://localhost:8161/a
 
 ```bash
 openssl s_client -connect 192.168.200.2:8162 -CAfile conf/broker.pem
+docker compose up
 curl -k -u admin:admin -d "body=message" https://192.168.200.2:8162/api/message/TEST?type=queue --pass '' --cert conf/broker.pem
 curl -k -u admin:admin -GET https://192.168.200.2:8162/api/jolokia/list --pass '' --cert conf/broker.pem
 wget --no-check-certificate --http-user=admin --http-password=admin --post-data="body=test" https://192.168.200.2:8162/api/message/TEST?type=queue --ca-certificate=conf/broker.pem -O /dev/null -o /dev/null
 wget --no-check-certificate --http-user=admin --http-password=admin --post-data="body=test" https://192.168.200.2:8162/api/jolokia/list --ca-certificate=conf/broker.pem -O /dev/null -o /dev/null
+docker compose down
 ```
 
 ## References
