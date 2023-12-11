@@ -1,4 +1,5 @@
-## Dockerfile to build a ActiveMQ container image.
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FAndriyKalashnykov%2Factivemq&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+## Dockerized ActiveMQ with HTTPS endpoinds.
 
 Based on [bellsoft/liberica-openjdk-alpine:17](https://hub.docker.com/r/bellsoft/liberica-openjdk-alpine), lightweight and multi-arch (Apple M1/M2/aarch64/arm64)
 
