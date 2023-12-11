@@ -177,3 +177,4 @@ No queues found
 * [multiple app nodes how to expose jmx in kubernetes](https://devpress.csdn.net/k8s/62fd66e07e66823466192202.html)
 * [Profiling JVM on Kubernetes using VisualVM](https://gist.github.com/anderson-custodio/2345a6248355063d02da948c5c9ee480)
 * [Collect monitoring data from Kubernetes JVMs](https://www.alibabacloud.com/help/en/sls/user-guide/collect-monitoring-data-from-kubernetes-jvms)
+* [Setting up JMX Monitoring on Kubernetes Atoms](https://community.boomi.com/s/article/Setting-up-JMX-Monitoring-on-Kubernetes-Atoms)
