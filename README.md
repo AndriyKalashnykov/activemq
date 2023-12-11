@@ -141,8 +141,23 @@ docker compose down
 
 For remote JMS connection use `service:jmx:rmi://192.168.200.2:1098/jndi/rmi://192.168.200.2:1099/jmxrmi`
 
+```bash
+-Dcom.sun.management.jmxremote.port=1099
+-Dcom.sun.management.jmxremote.authenticate=false
+-Dcom.sun.management.jmxremote.ssl=false
+-Dcom.sun.management.jmxremote.rmi.port=1099
+-Djava.rmi.server.hostname=<LoadbalancerIP>
+-Dcom.sun.management.jmxremote.local.only=false
+```
 
-Connect using ActliveMQ CLI:
+Connect using VisualVM
+
+```bash
+visualvm --openjmx service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi
+```
+
+
+## Connect using ActliveMQ CLI
 
 ```bash
 ./activemq-cli-0.9.2//bin/activemq-cli
@@ -157,3 +172,5 @@ No queues found
 
 * [Helm chart for ActiveMQ](https://github.com/disaster37/activemq-kube/blob/master/deploy/helm/activemq/templates/statefullset.yaml)
 * [Docker image for ActiveMQ](https://github.com/disaster37/activemq/blob/master/assets/entrypoint/entrypoint/Init.py)
+* [JMX on Kubernetes](https://blog.ramon-gordillo.dev/2023/10/jmx-on-kubernetes/)
+* [Connecting to JMX via Kubernetes Managed Docker Containers: A Guide](https://copyprogramming.com/howto/how-can-i-connect-to-jmx-through-kubernetes-managed-docker-containers)
