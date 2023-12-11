@@ -174,3 +174,4 @@ No queues found
 * [Docker image for ActiveMQ](https://github.com/disaster37/activemq/blob/master/assets/entrypoint/entrypoint/Init.py)
 * [JMX on Kubernetes](https://blog.ramon-gordillo.dev/2023/10/jmx-on-kubernetes/)
 * [Connecting to JMX via Kubernetes Managed Docker Containers: A Guide](https://copyprogramming.com/howto/how-can-i-connect-to-jmx-through-kubernetes-managed-docker-containers)
+* [multiple app nodes how to expose jmx in kubernetes](https://devpress.csdn.net/k8s/62fd66e07e66823466192202.html)
