@@ -15,7 +15,7 @@ Bind more ports and environment variables:
 ```bash
 docker run -it \
 -p 1098:1098 \
--p 1099:1099 \
+-p 11099:11099 \
 -p 1833:1833 \
 -p 5672:5672 \
 -p 8161:8161 \
@@ -65,7 +65,7 @@ The following ports are exposed and can be bound:
 
 | Port  | Description |
 |:------|:------------|
-| 1099  | JMX         |
+| 11099 | JMX         |
 | 1883  | MQTT        |
 | 5672  | AMPQ        |
 | 8161  | WebConsole  |
@@ -139,13 +139,13 @@ docker compose down
 
 ## JMX
 
-For remote JMS connection use `service:jmx:rmi://192.168.200.2:1098/jndi/rmi://192.168.200.2:1099/jmxrmi`
+For remote JMS connection use `service:jmx:rmi://192.168.200.2:11119/jndi/rmi://192.168.200.2:11099/jmxrmi`
 
 ```bash
--Dcom.sun.management.jmxremote.port=1099
+-Dcom.sun.management.jmxremote.port=11119
 -Dcom.sun.management.jmxremote.authenticate=false
 -Dcom.sun.management.jmxremote.ssl=false
--Dcom.sun.management.jmxremote.rmi.port=1099
+-Dcom.sun.management.jmxremote.rmi.port=11099
 -Djava.rmi.server.hostname=<LoadbalancerIP>
 -Dcom.sun.management.jmxremote.local.only=false
 ```
@@ -153,7 +153,7 @@ For remote JMS connection use `service:jmx:rmi://192.168.200.2:1098/jndi/rmi://1
 Connect using VisualVM
 
 ```bash
-visualvm --openjmx service:jmx:rmi://192.168.200.2:1099/jndi/rmi://192.168.200.2:1099/jmxrmi
+visualvm --openjmx service:jmx:rmi://192.168.200.2:11119/jndi/rmi://192.168.200.2:11099/jmxrmi
 ```
 
 
