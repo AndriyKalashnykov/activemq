@@ -153,7 +153,7 @@ For remote JMS connection use `service:jmx:rmi://192.168.200.2:1098/jndi/rmi://1
 Connect using VisualVM
 
 ```bash
-visualvm --openjmx service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi
+visualvm --openjmx service:jmx:rmi://192.168.200.2:1099/jndi/rmi://192.168.200.2:1099/jmxrmi
 ```
 
 

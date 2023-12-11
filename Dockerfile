@@ -32,8 +32,8 @@ COPY conf/client.p12 $ACTIVEMQ_HOME/conf/
 COPY conf/client.pem $ACTIVEMQ_HOME/conf/
 COPY conf/client.cert $ACTIVEMQ_HOME/conf/
 
-COPY bin/linux-x86-32/wrapper.conf $ACTIVEMQ_HOME/bin/linux-x86-32/
-COPY bin/linux-x86-64/wrapper.conf $ACTIVEMQ_HOME/bin/linux-x86-64/
+# COPY bin/linux-x86-32/wrapper.conf $ACTIVEMQ_HOME/bin/linux-x86-32/
+# COPY bin/linux-x86-64/wrapper.conf $ACTIVEMQ_HOME/bin/linux-x86-64/
 
 COPY webapps/api/WEB-INF/web.xml $ACTIVEMQ_HOME/webapps/api/WEB-INF/
 
@@ -41,7 +41,7 @@ RUN chown -R activemq:activemq $ACTIVEMQ_HOME && chown -h activemq:activemq $ACT
 
 WORKDIR $ACTIVEMQ_HOME
 USER activemq
-EXPOSE 11099 1099 1883 5672 8161 8162 61613 61614 61616 25672 26613 26614 26616 28883
+EXPOSE 1099 1883 5672 8161 8162 61613 61614 61616 25672 26613 26614 26616 28883
 
 VOLUME ["/opt/activemq/data"]
 ENTRYPOINT ["/entrypoint.sh"]
