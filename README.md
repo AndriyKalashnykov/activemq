@@ -175,3 +175,4 @@ No queues found
 * [JMX on Kubernetes](https://blog.ramon-gordillo.dev/2023/10/jmx-on-kubernetes/)
 * [Connecting to JMX via Kubernetes Managed Docker Containers: A Guide](https://copyprogramming.com/howto/how-can-i-connect-to-jmx-through-kubernetes-managed-docker-containers)
 * [multiple app nodes how to expose jmx in kubernetes](https://devpress.csdn.net/k8s/62fd66e07e66823466192202.html)
+* [Profiling JVM on Kubernetes using VisualVM](https://gist.github.com/anderson-custodio/2345a6248355063d02da948c5c9ee480)
